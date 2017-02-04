@@ -1,0 +1,13 @@
+.claim-goal-container {
+}
+
+.claim-goal-container .home-team,
+.claim-goal-container .away-team {
+	font-size: 1.25em;
+	display: inline-block;
+	width: 16em;
+}
+
+button.claim-button {
+	margin: 20px 0
+}

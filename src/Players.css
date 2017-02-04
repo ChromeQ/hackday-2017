@@ -1,0 +1,15 @@
+.players-list {
+	margin: 0;
+	padding: 0;
+}
+
+.players-list li {
+	list-style-type: none;
+}
+
+.new-player.button {
+	background-color: #ffffff;
+	border-color: #333;
+	color: #333;
+	font-weight: bold;
+}

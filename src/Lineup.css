@@ -1,0 +1,69 @@
+.lineup-container {
+	width: 60%;
+	display: inline-block;
+}
+
+.lineup-container div.home-team,
+.lineup-container div.away-team {
+	width: 50%;
+}
+
+.lineup-container div.home-team {
+	text-align: right;
+}
+
+.lineup-container div.away-team {
+	text-align: left;
+}
+
+.lineup {
+	padding: 0 50px;
+}
+
+.lineup-separator {
+	position: absolute;
+	font-size: 5em;
+	font-weight: bold;
+	width: 1em;
+	display: inline-block;
+	left: 50%;
+	margin-left: -0.5em;
+	text-align: center;
+	top: 60%;
+}
+
+.lineup-container h2 {
+	font-size: 4.25em;
+	padding: 5px 15px;
+}
+
+.lineup-container .home-team h2 {
+	background-color: #bd5656;
+}
+
+.lineup-container .away-team h2 {
+	background-color: #ffffff;
+}
+
+.lineup-container h4 {
+	font-size: 2.5em;
+	margin-bottom: 5px;;
+}
+
+.playerSlot {
+	display: inline-block;
+	height: 2.2em;
+	width: 8em;
+	color: #fff;
+	background-color: #286090;
+	border: 4px solid #204d74;
+	font-size: 1.5em;
+	padding: 8px 0;
+	margin: 10px 0;
+	text-align: center;
+}
+
+.empty.playerSlot {
+	border: 4px dashed #999;
+	background-color: transparent;
+}

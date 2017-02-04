@@ -1,0 +1,8 @@
+.console {
+	margin: 1em 1em 0.25em 1em;
+	font-size: 4em;
+}
+
+.console.goal {
+	font-weight: bold;
+}

@@ -1,0 +1,58 @@
+.score-container {
+	color: #333;
+	display: inline-block;
+	position: relative;
+	text-align: center;
+	width: 60%;
+	height: 40%;
+}
+
+.score-container div {
+	display: inline-block;
+	text-align: center;
+	font-size: 16em;
+	width: 40%;
+	height: 100%;
+	line-height: 1em;
+	overflow: hidden;
+	position: relative;
+}
+
+.score-container div span {
+	font-size: 1em;
+	position: absolute;
+	display: inline-block;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+}
+
+.home-score {
+	border-bottom: 30px solid #bd5656;
+}
+
+div.score-separator {
+	display: inline-block;
+	width: 20%;
+}
+
+.away-score {
+	border-bottom: 30px solid #ffffff;
+}
+
+.score-enter {
+	transition: all 250ms;
+	transform: translateY(100%);
+}
+.score-enter-active {
+	transform: translateY(0);
+}
+
+.score-leave {
+	transition: all 250ms;
+	transform: translateY(0);
+}
+.score-leave-active {
+	transform: translateY(-100%);
+}
