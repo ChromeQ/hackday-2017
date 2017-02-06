@@ -13,6 +13,12 @@ const Team = (props) => {
 				<div className="empty team-player">Player 1</div>
 			)}
 
+			{players[0] && players[0].name && players[1] && players[1].name ? (
+				<button className="switch-players" onClick={() => { props.switchPlayers(props.team); }}>Switch</button>
+			) : (
+				<button className="switch-players" disabled="disabled">Switch</button>
+			)}
+
 			<h4>ATT</h4>
 			{players[1] && players[1].name ? (
 				<div className="team-player">{players[1].name.toUpperCase()}</div>

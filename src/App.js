@@ -40,10 +40,18 @@ class App extends Component {
 
 	handleGoalScored(data) {
 		const state = _.extend({...this.state}, data);
+		const lineup = this.props.lineup;
 
 		state.message = 'GOAL!!!';
 
 		this.setState(state);
+
+		if (!lineup.home[0] && !lineup.home[1] && !lineup.away[0] && !lineup.away[1]) {
+			setTimeout(() => {
+				state.message = null;
+				this.setState(state);
+			}, 3500);
+		}
 	}
 
 	handleClaimGoal(player) {
@@ -62,13 +70,15 @@ class App extends Component {
 	render() {
 		return (
 			<div className="app">
-				<Team players={this.props.lineup.home} />
+				<Team players={this.props.lineup.home} switchPlayers={this.props.switchPlayers.bind(this)} team="home" />
 				<Score homeScore={this.state.team1score} awayScore={this.state.team2score} />
-				<Team players={this.props.lineup.away} />
+				<Team players={this.props.lineup.away} switchPlayers={this.props.switchPlayers.bind(this)} team="away" />
+
 				<Console message={this.state.message} />
 				{this.state.message === 'GOAL!!!' ? (
 					<ClaimGoal players={this.props.lineup} claimGoal={this.handleClaimGoal.bind(this)} />
 				) : null}
+
 				<Link to="/"><button className="fixed-button">Restart</button></Link>
 			</div>
 		);
