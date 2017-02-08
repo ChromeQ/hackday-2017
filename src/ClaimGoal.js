@@ -5,7 +5,7 @@ import './ClaimGoal.css';
 
 class ClaimGoal extends Component {
 
-	handleClaimGoal(player) {
+	handleClaimGoal(player, isOwnGoal) {
 		const url = `${config.api}/goals/claim`;
 		const data = {
 			headers: {
@@ -16,7 +16,8 @@ class ClaimGoal extends Component {
 
 		data.body = JSON.stringify({
 			playerId: player.id,
-			pos: player.pos
+			pos: player.pos,
+			ownGoal: isOwnGoal
 		});
 
 		fetch(url, data);
@@ -29,15 +30,19 @@ class ClaimGoal extends Component {
 			<div className="claim-goal-container">
 				<div className="home-team">
 					{this.props.players.home.map((player, i) => {
+						const isOwnGoal = this.props.scoringTeam === 'away';
+
 						return player ? (
-							<button className="claim-button" key={i} onClick={() => { this.handleClaimGoal(player); }}>{player.name}</button>
+							<button className={"claim-button" + (isOwnGoal ? " own-goal" : "")} key={i} onClick={() => { this.handleClaimGoal(player, isOwnGoal); }}>{isOwnGoal && <span>OG</span>}{player.name}</button>
 						) : null;
 					})}
 				</div>
-				<div className="home-team">
+				<div className="away-team">
 					{this.props.players.away.map((player, i) => {
+						const isOwnGoal = this.props.scoringTeam === 'home';
+
 						return player ? (
-							<button className="claim-button" key={i} onClick={() => { this.handleClaimGoal(player); }}>{player.name}</button>
+							<button className={"claim-button" + (isOwnGoal ? " own-goal" : "")} key={i} onClick={() => { this.handleClaimGoal(player, isOwnGoal); }}>{isOwnGoal && <span>OG</span>}{player.name}</button>
 						) : null;
 					})}
 				</div>

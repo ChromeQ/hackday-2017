@@ -18,7 +18,8 @@ class App extends Component {
 		this.state = {
 			team1score: 0,
 			team2score: 0,
-			message: null
+			message: null,
+			scoringTeam: null
 		};
 	}
 
@@ -41,8 +42,10 @@ class App extends Component {
 	handleGoalScored(data) {
 		const state = _.extend({...this.state}, data);
 		const lineup = this.props.lineup;
+		const scoringTeam = data.team1score === this.state.team1score + 1 ? 'home' : 'away';
 
 		state.message = 'GOAL!!!';
+		state.scoringTeam = scoringTeam;
 
 		this.setState(state);
 
@@ -76,7 +79,7 @@ class App extends Component {
 
 				<Console message={this.state.message} />
 				{this.state.message === 'GOAL!!!' ? (
-					<ClaimGoal players={this.props.lineup} claimGoal={this.handleClaimGoal.bind(this)} />
+					<ClaimGoal players={this.props.lineup} claimGoal={this.handleClaimGoal.bind(this)} scoringTeam={this.state.scoringTeam} />
 				) : null}
 
 				<Link to="/"><button className="fixed-button">Restart</button></Link>
