@@ -57,10 +57,10 @@ class App extends Component {
 		}
 	}
 
-	handleClaimGoal(player) {
-		let message = {...this.state.message};
+	handleClaimGoal(player, isOwnGoal) {
+		let { message } = {...this.state};
 
-		message = `Goal scored by ${player.name}!`;
+		message = isOwnGoal ? `Oops! Own goal scored by ${player.name}!` : `Goal scored by ${player.name}!`;
 
 		this.setState({ message });
 

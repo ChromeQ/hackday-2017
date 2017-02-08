@@ -22,7 +22,7 @@ class ClaimGoal extends Component {
 
 		fetch(url, data);
 
-		this.props.claimGoal(player);
+		this.props.claimGoal(player, isOwnGoal);
 	}
 
 	render() {
