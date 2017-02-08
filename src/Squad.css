@@ -1,14 +1,16 @@
-.list-container {
+.squad-container {
 	position: relative;
 }
 
-.list-container .home-team,
-.list-container .away-team {
+.squad-container .home-team,
+.squad-container .away-team {
 	width: 20%;
 	display: inline-block;
 	vertical-align: top;
 }
 
-.list-container .away-team {
+.squad-container .away-team {
 	text-align: right;
+	position: absolute;
+	right: 0;
 }

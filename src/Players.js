@@ -25,7 +25,7 @@ class Players extends Component {
 			fetch(url, data).then((res) => {
 				res.json().then((json) => {
 					if (!json.error) {
-						this.props.newPlayerAdded();
+						this.props.playerAdded();
 						this.newPlayerInput.value = 'New Player';
 					}
 				});
@@ -42,7 +42,7 @@ class Players extends Component {
 							{player.selected ? (
 								<button className="player" disabled="disabled">{player.name}</button>
 							) : (
-								<button className="player" onClick={() => { this.props.playerSelected(player, this.props.team); }}>{player.name}</button>
+								<button className="player" onClick={() => { this.props.playerSelected(i, this.props.team); }}>{player.name}</button>
 							)}
 						</li>
 					);
